@@ -1,8 +1,5 @@
 <header>
-	<div class="corner">
-		Kennan's Morse Code Learner
-	</div>
-
+	<div class="corner">Kennan's Morse Code Learner</div>
 
 	<div class="corner">
 		<!-- TODO put something else here? github link? -->

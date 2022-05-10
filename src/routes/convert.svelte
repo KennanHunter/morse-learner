@@ -1,14 +1,21 @@
 <script lang="ts">
-	import { toMorse, toText } from '$lib/functions/Convert';
+	import { toMorse, toText } from "$lib/functions/Convert";
 
-	let convertedValue = '';
-	let conversionType = 'toText';
-	let value = '';
+	let convertedValue = "";
+	let conversionType = "toText";
+	let value = "";
 
 	function convert() {
-		if (conversionType === 'toText') {
+		if (value.includes(".") || value.includes("-") || value.includes("/")) {
+			conversionType = "toText";
+			console.log(conversionType);
+		} else if (value.trim()) {
+			conversionType = "toMorse";
+		}
+
+		if (conversionType === "toText") {
 			convertedValue = toText(value);
-		} else if (conversionType === 'toMorse') {
+		} else if (conversionType === "toMorse") {
 			convertedValue = toMorse(value);
 		}
 	}
@@ -21,4 +28,4 @@
 <br />
 <textarea name="" id="" cols="30" rows="10" bind:value on:keyup={convert} />
 <h1>Convert</h1>
-<p>{convertedValue}</p>
+<pre>{convertedValue}</pre>
