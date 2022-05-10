@@ -1,5 +1,6 @@
+import { invert } from "underscore";
 // Conversion table
-export const morseCodeTable = {
+export const textToMorseTable = {
 	// Letters
 	A: ".-",
 	B: "-...",
@@ -41,16 +42,17 @@ export const morseCodeTable = {
 	0: "-----",
 };
 
+export const morseToTextTable = invert(textToMorseTable);
+
 export function toMorse(text: string): string {
 	let wordArray = text.split(" ");
 	let convertedWordArray = wordArray.map((value) => {
 		return [...(value.toUpperCase() as any)]
-			.map((val: keyof typeof morseCodeTable) => {
-				return morseCodeTable[val];
+			.map((val: keyof typeof textToMorseTable) => {
+				return textToMorseTable[val];
 			})
 			.join(" ");
 	});
-	console.log(convertedWordArray);
 	return convertedWordArray.join(" / ");
 }
 
@@ -60,17 +62,10 @@ export function toText(morse: string): string {
 		return value
 			.split(" ")
 			.map((val) => {
-				return Object.keys(morseCodeTable).find((k) => {
-					if (k in Object.keys(morseCodeTable)) {
-						return (
-							morseCodeTable[k as keyof typeof morseCodeTable] ===
-							val
-						);
-					}
-				});
+				return morseToTextTable[val as keyof typeof morseToTextTable];
 			})
-			.join(" ");
+			.join("");
 	});
 	console.log(wordArray);
-	return convertedWordArray.join(" / ");
+	return convertedWordArray.join(" ");
 }

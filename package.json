@@ -16,6 +16,7 @@
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "@types/cookie": "^0.4.1",
+    "@types/underscore": "^1.11.4",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.10.1",
     "eslint": "^8.12.0",
@@ -36,6 +37,7 @@
     "@lukeed/uuid": "^2.0.0",
     "@sveltejs/adapter-static": "^1.0.0-next.29",
     "cookie": "^0.4.1",
-    "svelte-image": "^0.2.9"
+    "svelte-image": "^0.2.9",
+    "underscore": "^1.13.3"
   }
 }
